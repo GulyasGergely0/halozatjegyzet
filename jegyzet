@@ -1,0 +1,31 @@
+docker pull
+docker run -t -i leskoaripi/nmap
+npa - network map  --- hálózat felderítés
+
+ docker -p				-p (port forwarding)
+ docker -d				-d (deamonizálás)
+ 
+ docker container ls - (list cointainers) konténereket kiírja
+ docker container kill myXampp
+ docker container ls -a			-a(all)
+ docker container rm myXampp		-rm (remove)
+ docker images				-images megejeneítése
+ docker rmi pl Ubunut:latest		-rmi (remove image)
+
+ 
+ 
+ ezen belül xampp szerver; google docker tomsik68 xampp
+ oldalon lévő commandból port; localhost.(port)
+ 
+ 
+ namp -v -A weboldal
+ http - 80 as protokol
+ https - 443 as protokol
+ ssh 	22
+ 
+ 
+ 192.168, 10. csak privát tartomány
+ keresnivalók
+ apache webszerver
+ trace route
+ openwrt.lan
