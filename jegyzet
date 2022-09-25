@@ -1,3 +1,10 @@
+-i                      -interakív
+-t                      -sudo, teljes hozzáférés
+-a                      -all
+docker ps               -futó konténerek
+
+
+
 docker pull
 docker run -t -i leskoaripi/nmap
 npa - network map  --- hálózat felderítés
