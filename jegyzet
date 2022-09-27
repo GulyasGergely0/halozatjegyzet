@@ -3,7 +3,8 @@
 -t                      -sudo, teljes hozzáférés
 -a                      -all
 docker ps               -futó konténerek
-
+CREATE DATABASE nev;
+DROP DATABASE nev;
 
 
 docker pull
@@ -22,18 +23,24 @@ npa - network map  --- hálózat felderítés
 
  
  
- ezen belül xampp szerver; google docker tomsik68 xampp
- oldalon lévő commandból port; localhost.(port)
+ezen belül xampp szerver; google docker tomsik68 xampp
+oldalon lévő commandból port; localhost.(port)
  
  
- namp -v -A weboldal
- http - 80 as protokol
- https - 443 as protokol
- ssh 	22
- 
- 
- 192.168, 10. csak privát tartomány
- keresnivalók
- apache webszerver
- trace route
- openwrt.lan
+namp -v -A weboldal
+http - 80 as protokol
+https - 443 as protokol
+ssh 	22
+
+192.168, 10. csak privát tartomány
+
+1. óra
+keresnivalók
+apache webszerver
+trace route
+openwrt.lan
+
+2. óra
+ssh
+scp
+
