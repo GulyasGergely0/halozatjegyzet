@@ -20,7 +20,8 @@ npa - network map  --- hálózat felderítés
  docker container rm myXampp		-rm (remove)
  docker images				-images megejeneítése
  docker rmi pl Ubunut:latest		-rmi (remove image)
-
+ docker start (container id)  -Ha a container exited status alatt van, start-al elindíthatjuk
+ docker exec -it Név bash     -Konténer termináljának elérése
  
  
 ezen belül xampp szerver; google docker tomsik68 xampp
