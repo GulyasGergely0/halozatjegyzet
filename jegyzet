@@ -1,5 +1,5 @@
 ----------Utasítások----------
--i                      -interakív
+-i                      -interakív - shell ben hozzáférünk az image-hez (pl. ubuntu)
 -t                      -sudo, teljes hozzáférés
 -a                      -all
 docker ps               -futó konténerek
