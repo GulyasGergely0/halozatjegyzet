@@ -23,6 +23,8 @@ npa - network map  --- hálózat felderítés
  docker start (container id)  -Ha a container exited status alatt van, start-al elindíthatjuk
  docker exec -it Név bash     -Konténer termináljának elérése
  
+ sudo docker start konénerID  - elindítja az exitelt konténert
+ 
  
 ezen belül xampp szerver; google docker tomsik68 xampp
 oldalon lévő commandból port; localhost.(port)
