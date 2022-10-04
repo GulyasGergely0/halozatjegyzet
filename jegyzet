@@ -47,3 +47,26 @@ openwrt.lan
 ssh
 scp
 
+3. óra
+
+suilpy feladat
+
+CREATE DATABASE kutyamenhely;
+USE kutyamenhely;
+
+CREATE TABLE kutyak(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nev VARCHAR(50) NOT NULL,
+    kor INT CHECK (kor < 30),
+    nem VARCHAR(50) DEFAULT 'kan',
+    megjegyzes VARCHAR(500)
+    );
+
+INSERT INTO kutyak (nev, kor, nem, megjegyzes) VALUES ('Buksi', 3, 'kan', 'diabetikus');
+INSERT INTO kutyak (nev, kor, nem, megjegyzes) VALUES ('Virag', 5, 'szuka', 'bolond');
+
+
+
+
+
+
