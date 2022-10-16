@@ -1,0 +1,20 @@
+----------Fájlrendszerben való közlegedés, letrehozás, törlés stb----------
+pwd                     -print working directory - jelenlegi mappa kiírása
+
+ls                      -list, milyen fájlok, mappák találhatóak a jelenlegi mappában | kék:directory, fehér:fájl
+ls /mappa               -milyen fájlok, mappák vannak az adott mappában
+ls -l                   -több részlet
+ls -1                   -soronkénti kiírás
+
+cd                      -change directory - mappák navigálása, fájl változtatása
+cd ..                   -egy szint fel
+cd ../..                -két szint fel
+cd ~                    -home directory
+
+mkdir fájlnév           -make directory - mappa elkészítése de nem lép bele
+
+mv                      -mozgatás és átnevezés
+mv név.txt név2.txt     -mappa, fájl átnevezése
+mv név.txt mappa        -fájl, mappa áthelyezése
+
+touch név.txt           -új fájl létrehozása (többet is lehet egyszerre; touch fájl1.txt fájl2.txt fájl3.txt)
