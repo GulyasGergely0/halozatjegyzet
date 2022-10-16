@@ -154,7 +154,7 @@ Hasonlítás; LIKE (mint) és NOT LIKE (nem mint) használhatóak.
 Select * FROM táblaNév
 WHERE oszlopNév Like    -'a%'		-Adatok amik 'a'-val kezdődik
 			-'%a'		-Adatok amik 'a'-val végződik
-			-'%or%'		-Adatok amikben akármelyik pozicióban 'or'-van 
+			-'%or%'		-Adatok amikben akármelyik pozicióban 'or'-van     |  contains tartalmaz
 			-'_a%'		-Adatok amikben 'a' második pozicióban van
 			-'a_%'		-Adatok amikben 'a' betű legalább kétszer van egymás után
 			-'a__%'		-Adatok amikben 'a' betű legalább háromszor van egymás után
