@@ -1,0 +1,47 @@
+gép és switch kapcsolása konzola kábellel
+switchnek csak akkor adunk ip címet, ha távolról akarjuk elérni 
+vty: Virtual TeleType
+
+do show run: adatok kiírása
+
+enable
+conf t
+hostname név
+ip domain name pl.: ceg2.com
+int vlan 1                        -vlan 1-be lépés | vlan 1 nek nem szerencsés ip címet adni, mert azaz első amit hiba esetén elérnek. vlan 1 = management ip
+ip address ip cím	                -vlan 1 ip címének megadása
+no shut                           -vlan 1 felkapcsolása
+exit                              -vlan 1-ből kilépése
+ip default-gatway                 -alapértelmezett átjáró beállítása | nincs mask
+ip ssh ver 2                      -ssh 2. verziójaának engedélyezése előre
+crypto key gen rsa                -rsa kulcs generálása
+1024	
+line vty 0 15                     -telnet (vty) kikapcsolása mivel nem biztonságos
+login local
+transport input ssh               -(talán) kommunikáció ssh val működjön	
+transport ? - transport input ?
+username név privilege 15 jelszó - 15: admin jogok utána password (md15 titkosítás: secret, password nem titkosít)
+do show ip int brief
+
+gépen desktop > telnet / shh client be switch ip címe és bejelentkezés neve
+ezután commands prompt
+ssh -l Admin switch ip cím       -Admin = username
+*jelszó megadása*
+conf t 
+line con 0                        -konzol 1 kijelölése
+password Passcon123               -jelszó beállítása
+login                             -bejelentkezés
+enable secret Securen321          -secret: md5-ös titkosítású jelszó | enable: admin jogosultság | Securen321: jelszó
+int gig 0/0                       -Gigabit ethernet csatlakozóba belépés
+ip add 192.168.100.1 255.255.255.240      -ip cim és maszk megadása
+no shut
+exit                                -nem muszály
+int gig0/1                          -
+ip add 192.168.100.17 255.255.255.240
+
+
+vezetéknélküli internet (router beállítása laptopról, rá kell kötni)
+laptopon dhcp beállítása
+laptopon böngészőben router ip-cím keresése; név és jelszó admin
+
+wpa2 psk = wpa2 personal
