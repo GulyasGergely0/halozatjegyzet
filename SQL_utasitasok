@@ -1,0 +1,200 @@
+----------ÁLTALÁNOS TUDNIVALÓK----------
+
+Az SQL-t nem érdekli hogy az utasítások kicsi vagy nagybetűvel vannak írva;
+SELECT és select ugyanúgy elvégzi a feladatot. (szerintem) szerencsés mindig nagybetűvel írni, mert így valamilyen szinten átláthatóbb.
+
+
+Nem muszály egy egész utasítássort egy sorban írni, enterrel feltörhetjük őket hogy átláthatóbb legyen a kódunk.
+A komplett utasításunk végét a pontosvessző jelzi.
+
+SELECT * FROM táblanév ORDER BY oszlop;
+és
+SELECT * FROM táblanév 
+ORDER BY oszlop;
+
+Úgyanúgy működőképes.
+
+----------SELECT----------
+
+SELECT * FROM táblanév;				-Kijelöli (Kiírja!) az összes adatot a megadott táblából
+
+SELECT oszlopNév FROM táblaNév;			-Kiírja összes adatot a megadott oszlopból a táblán belül,
+						 több oszlop nevet is meglehet adni, vesszővel elválasztva
+----------DISCTINCT----------
+
+SELECT DISTINCT * FROM táblanév;		-Nem egyező, különböző adatok kiválasztása
+
+----------WHERE----------
+
+SELECT * FROM táblaNév WHERE feltétel;		-Feltételekre használt utasítás, feltétel példák
+			     oszlopNév='adat'	(string esetében aposztrófokat használunk, számok esetében nem!)
+			     oszlopNév = 
+			     oszlopNév > 
+			     oszlopNév < 
+			     oszlopNév >= 
+			     oszlopNév <= 
+			     oszlopNév <> 	-Nem egyenlő - vannak SQL verziók ahol ez !=
+			     oszlopNév BETWEEN  -Két adat között; pl WHERE oszlopNév BETWEEN 50 AND 60;
+			     oszlopNév IN 	-Több elem keresése egy oszlopban pl WHERE oszlopNév IN ('adat', 'adat');
+
+----------AND, OR, NOT----------
+
+
+SELECT oszlop1, oszlop2 FROM táblaNév WHERE felétel1 AND feltétel2 AND feltétel3;
+
+SELECT oszlop1, oszlop2 FROM táblaNév WHERE felétel1 OR feltétel2 OR feltétel3;
+
+SELECT oszlop1, oszlop2 FROM táblaNév WHERE NOT feltétel;
+
+SELECT * FROM táblaNév WHERE feltétel1 AND (feltétel2 OR feltétel3);
+
+SELECT * FROM táblaNév WHERE NOT feltétel1 AND NOT feltétel2;
+
+
+----------ORDER BY----------
+
+SELECT * FROM táblaNév ORDER BY oszlop;			-String esetében abc sorrendben, szám esetében növekvő sorrendben irja ki az adatokat
+SELECT * FROM táblaNév ORDER BY oszlop DESC;		-Alapból növekvő sorrendben megy: ASC (ascending, növekvő), DESC (descencing, csökkenő sorrend)
+SELECT * FROM táblaNév ORDER BY oszlop, oszlop2;
+SELECT * FROM táblaNév ORDER BY oszlop ASC, oszlop2 DESC;
+
+----------INSERT INTO----------
+Új sort tudunk megadni egy meglévő táblába, oszlopok és hozzávaló adatok megadásával. Ha nem adunk meg értéket, akkor NULL értéket kap.
+
+
+INSERT INTO táblanév (oszlop1, oszlop2, oszlop3)
+VALUES (érték1, érték2, érték3)
+
+Példa:
+
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', 4006, 'Norway');
+
+
+----------NULL----------
+(Nem 'NULL' mint string, hanem NULL mint például egy utasítás!)
+
+A NULL értéket is lehet keresni, de NEM lehet operátorokat használni mint például; =, <, >, <> stb.
+Ezek helyett IS, IS NOT, utasításokat kell használnunk.
+
+Például:
+
+SELECT * FROM táblanév WHERE oszlop IS NULL;		-kiírja ahol a megadott oszlopban NULL érték található
+
+SELECT * FROM táblanév WHERE oszlop IS NOT NULL;	-kiírja ahol a megadott oszlopban NEM található NULL érték
+
+
+----------UPDATE----------
+Az update utasítással meglévő sort, adatait tudjuk megváltoztatni.
+
+UPDATE táblanév
+SET oszlopNév = érték, oszlopNév = érték
+WHERE feltétel;
+
+Például
+
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
+FONTOS: Ha nem adjuk meg hogy melyik sort szeretnénk megváltoztatni (WHERE) akkor az összes adat megváltozik!!!
+
+Például Ha ezt adjuk meg:
+
+UPDATE Customers
+SET ContactName='Juan';
+
+Akkor a Customers táblában az összes sornak a ContactName-e 'Juan' lesz!
+
+----------DELETE----------
+
+DELETE FROM tábla neve WHERE oszlopnév='adatnév' pl CategoryName='Beverages';
+*Ha nem adunk WHERE utasítást, minden törlődik a táblázatban!!!
+
+DELETE FROM táblaNév; - Minden törlődik!
+
+----------LIMIT----------
+MySQL ben(van más is, MySQL a legelterjettebb):
+
+SELECT CustomerName, City, Country -Oszlop Nevek
+FROM Customers                     -tábla neve
+WHERE Country='Germany'		   -feltétel
+LIMIT 2;			   -Hányat írjon ki; Ha többet adunk meg mint amennyi van,
+				    kiírja az összeset és vége
+
+---------- MIN MAX ----------
+ABC Sorrend szerint legnagyobb(MAX) vagy legkissebb(MIN) kiválasztása
+
+SELECT MAX(ContactName), Country	-MAX(Minek keresse min maxát), sorNév (még mit írjon ki) 
+FROM Customers				-Melyik táblából
+WHERE Country='Germany';		-Feltétel
+
+----------COUNT(), AVG(), SUM()----------
+
+COUNT(): Megszámolja hány adat van, nélküle csak ki vanak írva az adatok
+
+SELECT COUNT(oszlopNév)
+FROM TáblaNeve
+WHERE feltétel (pl Price=18);
+
+AVG(): Számokból álló oszlop átlaga
+
+SELECT AVG(oszlopNév)
+FROM táblaNév;
+
+SUM(): Számokból álló oszlop összege
+
+SELECT SUM(oszlopNév)
+FROM táblaNév;
+
+----------LIKE----------
+
+Hasonlítás; LIKE (mint) és NOT LIKE (nem mint) használhatóak.
+
+Select * FROM táblaNév
+WHERE oszlopNév Like    -'a%'		-Adatok amik 'a'-val kezdődik
+			-'%a'		-Adatok amik 'a'-val végződik
+			-'%or%'		-Adatok amikben akármelyik pozicióban 'or'-van 
+			-'_a%'		-Adatok amikben 'a' második pozicióban van
+			-'a_%'		-Adatok amikben 'a' betű legalább kétszer van egymás után
+			-'a__%'		-Adatok amikben 'a' betű legalább háromszor van egymás után
+			-'a%o'		-Adatok amik 'a'-val kezdődik és 'o'-val végződik
+
+NOT LIKE példa:
+
+SELECT * FROM táblanév
+WHERE oszlopNév NOT LIKE 'a%'		-Adatok az oszlopban amik NEM 'a'-val kezdődnek. Ez működik mindegyik feltétellel!
+
+----------WILDCARDS----------
+LIKE utasítással használjuk
+
+% WILDCARD pl.
+WHERE oszlop LIKE 'ber%';		-Adatok amik 'ber' sztringgel kezdődik
+
+WHERE oszlop LIKE 'ber%';		-Adatok amik 'ber' sztringgel végződik
+
+WHERE oszlop LIKE '%es%';		-Adatok amikben megtalálható az 'es' minta
+
+_ WILDCARD pl.
+Hiány---------------------------------
+
+WHERE oszlop LIKE '_ondon';		-Adatok amik akármilyen karakterrel kezdődnek, és 'ondon' sztringgel folytatódnak, de ilyenkor például a 'London1234'
+					 sztringet nem hozza fel, megadott végzés utáni karakterekkel tulajdonos sztringek nem megfelelőek, nem írja ki őket.
+----------SHOW----------
+
+SHOW DATABASES
+SHOW TABLES FROM adatbázis;
+
+----------CREATE TABLE----------
+
+CREATE TABLE táblanév(
+oszlopNév adattípus
+oszlopnév2 adattípus
+ect.
+)
+
+
+Adattípus példák:
+-INT
+-VARCHAR(szám)				-variable character
+-DATE
