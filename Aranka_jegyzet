@@ -20,7 +20,7 @@ line vty 0 15                     -telnet (vty) kikapcsolása mivel nem biztons�
 login local
 transport input ssh               -(talán) kommunikáció ssh val működjön	
 transport ? - transport input ?
-username név privilege 15 jelszó - 15: admin jogok utána password (md15 titkosítás: secret, password nem titkosít)
+username név privilege 15 secret jelszó - 15: admin jogok utána password (md15 titkosítás: secret, password nem titkosít)
 do show ip int brief
 
 gépen desktop > telnet / shh client be switch ip címe és bejelentkezés neve
@@ -45,3 +45,11 @@ laptopon dhcp beállítása
 laptopon böngészőben router ip-cím keresése; név és jelszó admin
 
 wpa2 psk = wpa2 personal
+
+
+4. óra
+
+packet tracer routr beállítása konzol kábelen és terminálon keresztül
+
+security passwords min-length 8                   -Jelszó minimum hosszának meghatározása
+	
