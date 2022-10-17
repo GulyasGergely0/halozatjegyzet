@@ -52,4 +52,7 @@ wpa2 psk = wpa2 personal
 packet tracer routr beállítása konzol kábelen és terminálon keresztül
 
 security passwords min-length 8                   -Jelszó minimum hosszának meghatározása
+copy run start					  -változtatások elmentése, alapból csak a memóriában vannak a változtatásaink
+ *enter* 					  -ha más név ként szeretnénk megadni a mentésnek, akkor ide írjuk az új nevet, aztán nyomunk egy entert.
+ show start					  -az elmentett indítási konfiguráció megmutatása
 	
