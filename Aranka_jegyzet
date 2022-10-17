@@ -12,7 +12,7 @@ int vlan 1                        -vlan 1-be lépés | vlan 1 nek nem szerencsé
 ip address ip cím	                -vlan 1 ip címének megadása
 no shut                           -vlan 1 felkapcsolása
 exit                              -vlan 1-ből kilépése
-ip default-gatway                 -alapértelmezett átjáró beállítása | nincs mask
+ip default-gateway                 -alapértelmezett átjáró beállítása | nincs mask
 ip ssh ver 2                      -ssh 2. verziójaának engedélyezése előre
 crypto key gen rsa                -rsa kulcs generálása
 1024	
@@ -20,7 +20,7 @@ line vty 0 15                     -telnet (vty) kikapcsolása mivel nem biztons�
 login local
 transport input ssh               -(talán) kommunikáció ssh val működjön	
 transport ? - transport input ?
-username név privilege 15 secret jelszó - 15: admin jogok utána password (md15 titkosítás: secret, password nem titkosít)
+username név privilege 15 secret jelszó - 15: admin jogok utána password (md15 titkosítás: secret, password nem titkosít) 0: semmi 1: user 15: legnagyobb
 do show ip int brief
 
 gépen desktop > telnet / shh client be switch ip címe és bejelentkezés neve
@@ -52,9 +52,24 @@ wpa2 psk = wpa2 personal
 packet tracer routr beállítása konzol kábelen és terminálon keresztül
 
 security passwords min-length 8				-Jelszó minimum hosszának meghatározása
+end							-kilépés
 copy run start						-változtatások elmentése, alapból csak a memóriában vannak a változtatásaink
  *enter* 						-ha más név ként szeretnénk megadni a mentésnek, akkor ide írjuk az új nevet, aztán nyomunk egy entert.
- show start						-az elmentett indítási konfiguráció megmutatása
- enable secret *jelszó*					-Távoli eléréshez való jelszó beállítása. Mivel enable-el már priviegizált módban vagyunk, ezért 
+show start						-az elmentett indítási konfiguráció megmutatása
+enable secret *jelszó*					-Távoli eléréshez való jelszó beállítása. Mivel enable-el már priviegizált módban vagyunk, ezért 
  							 nem kell pl "privilege 15".
+							 
+-------konzolos és távoli elérés 2. email-------
+
+copy running-config startup-config
+
+show start
+
+volitaile memóriába men
+
+telnet ip cím	
 	
+line con 0
+
+
+
