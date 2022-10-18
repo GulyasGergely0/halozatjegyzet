@@ -67,3 +67,29 @@ a; SELECT MIN(standard_cost) FROM products;
 b; SELECT MAX(standard_cost) FROM products;
 c; SELECT MAX(standard_cost) FROM products WHERE list_price > 30;
 d; SELECT MAX(standard_cost) FROM products WHERE product_code LIKE '%CO%';
+
+
+UNION, GROUP BY, HAVING
+
+1. a:
+SELECT ship_state_province FROM orders
+UNION
+SELECT state_province FROM customers:
+
+1. b:
+SELECT ship_state_province FROM orders
+UNION ALL
+SELECT state_province FROM customers:
+
+2.:
+SELECT COUNT(category), category FROM products GROUP BY category;
+
+3.:
+SELECT COUNT(ship_city), ship_city FROM orders GROUP BY ship_city;
+
+4.:
+
+
+
+
+
