@@ -1,0 +1,69 @@
+SULIPY
+SELECT/FROM/WHERE
+1. feladat
+a) SELECT * FROM Categories;
+b) SELECT CategoryName FROM Categories;
+c) SELECT CategoryName, Description FROM Categories;
+
+2. feladat
+a) SELECT ProductName, Unit, price FROM Products;
+b) SELECT * FROM Products WHERE Price < 20;
+c) SELECT * FROM Products WHERE Price BETWEEN 20 AND 30;
+d) SELECT * FROM Products WHERE Price <> 10;
+e) SELECT * FROM Products WHERE ProductName LIKE 't%';
+f) SELECT * FROM Products WHERE ProductName LIKE 'Louisiana%';
+
+3. feladat
+a) SELECT DISTINCT city FROM Suppliers;
+
+
+AND / OR / NOT és ORDER BY
+1.)
+a) SELECT SupplierName, Country FROM Suppliers WHERE Country = 'USA' OR Country = 'UK';
+b) SELECT SupplierName, Country, City FROM Suppliers WHERE Country = 'USA' AND (City = 'Boston' OR City = 'New Orleans');
+c) SELECT SupplierName, Country FROM Suppliers WHERE Country <> 'Canada' AND Country<> 'Japan';
+
+2.)
+a) SELECT ProductName, Price FROM Products ORDER BY Price;
+b) SELECT ProductName, Price FROM Products ORDER BY Price DESC;
+c) (ezt nem értem de elvileg kész) SELECT ProductName, Unit FROM Products ORDER BY ProductName, Unit ASC, Unit DESC;
+
+INSERT INTO és NULL érték
+1. feladat
+a) INSERT INTO Categories (CategoryName, Description) VALUES ('Spices', 'Salt, pepper, thyme, coriander, rosemary');
+b) INSERT INTO Categories (CategoryName) VALUES ('Spices');
+c) SELECT * FROM Categories WHERE Description IS NULL;
+
+
+UPDATE és DELETE teszt
+UPDATE Customers SET Address='Bababooey Str. 7', City='GonkTown' WHERE CustomerID=1
+UPDATE Customers SET ContactName='Mark Johnson' WHERE CustomerID=1;
+
+
+----------4.: SQL NYELVRŐL BŐVEBBEN ----------
+
+CREATE, DROP, ALTER
+
+
+SQL Függvények
+
+1.:
+a; SELECT AVG(standard_cost) FROM products;
+b; SELECT AVG(list_price) FROM products WHERE list_price < 30;
+c; SELECT AVG(standard_cost) FROM products WHERE category = 'Sauces';
+
+2.:
+a; SELECT SUM(standard_cost) FROM products;
+b; SELECT SUM(list_price) FROM products WHERE list_price BETWEEN 20 AND 50;
+c; SELECT SUM(standard_cost) FROM products WHERE category <> 'sauces';
+
+3.:
+a; SELECT COUNT(id) FROM employees WHERE city = 'Seattle';
+b; SELECT COUNT(id) FROM employees WHERE job_title = 'Sales Representative';
+c; SELECT COUNT(id) FROM employees WHERE first_name LIKE 'A%';
+
+4.:
+a; SELECT MIN(standard_cost) FROM products;
+b; SELECT MAX(standard_cost) FROM products;
+c; SELECT MAX(standard_cost) FROM products WHERE list_price > 30;
+d; SELECT MAX(standard_cost) FROM products WHERE product_code LIKE '%CO%';
