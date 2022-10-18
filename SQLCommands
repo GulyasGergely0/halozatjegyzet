@@ -198,3 +198,21 @@ Adattípus példák:
 -INT
 -VARCHAR(szám)				-variable character
 -DATE
+
+----------UNION----------
+
+pl.:						-Két külön táblából más oszlopoknak adatat egyszerre írjuk ki
+SELECT ship_state_province FROM orders
+UNION
+SELECT state_province FROM customers;
+
+
+UNION						-Adatok kiírása rendezetlenül égymásban, ismétlődés nélkül
+UNION ALL					-ÖSSZES adat kiírása, ismétlődő adatok bukkanhatnak fel ahol a sima UNION-nál nem.
+
+
+
+
+
+
+
