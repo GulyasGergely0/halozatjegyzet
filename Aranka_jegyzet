@@ -18,7 +18,7 @@ crypto key gen rsa                -rsa kulcs generálása
 1024	
 line vty 0 15                     -telnet (vty) kikapcsolása mivel nem biztonságos
 login local
-transport input ssh               -(talán) kommunikáció ssh val működjön	
+transport input ssh               -kommunikáció ssh val működjön	
 transport ? - transport input ?
 username név privilege 15 secret jelszó - 15: admin jogok utána password (md15 titkosítás: secret, password nem titkosít) 0: semmi 1: user 15: legnagyobb
 do show ip int brief
