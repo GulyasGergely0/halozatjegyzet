@@ -88,7 +88,7 @@ SELECT COUNT(category), category FROM products GROUP BY category;
 SELECT COUNT(ship_city), ship_city FROM orders GROUP BY ship_city;
 
 4.:
-
+SELECT COUNT(company), city FROM customers GROUP BY city HAVING COUNT(company) > 3; --- ROSSZ
 
 
 
