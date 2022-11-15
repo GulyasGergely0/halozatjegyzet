@@ -87,6 +87,7 @@ c; SELECT COUNT(id) FROM employees WHERE first_name LIKE 'A%';
 4.:
 
 
-
+köv. óra 
+sulipy sql + python
 
 
