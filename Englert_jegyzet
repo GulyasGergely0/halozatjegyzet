@@ -88,6 +88,48 @@ c; SELECT COUNT(id) FROM employees WHERE first_name LIKE 'A%';
 
 
 köv. óra 
-sulipy sql + python
+replit englert (sql-koridok)
+infojegyzet.hu vizsgafeladatok
+
+köv. óra
+
+import sqlite3
+
+sql = sqlite3.connect("koridok.db")
+
+sql.execute("DROP TABLE IF EXISTS tb")
+sql.execute("""
+    CREATE TABLE IF NOT EXISTS tb
+    (csapat    TEXT,
+    versenyzo  TEXT,
+    eletkor    INTEGER,
+    palya      TEXT,
+    korido     TEXT,
+    kor        INTEGER,
+    sec        INTEGER)
+    """)
+sql.commit()
+
+with open('autoverseny.txt') as f:
+    fejlec = f.readline().strip()
+    for sor in f:
+        csapat, versenyzo, eletkor, palya, korido, kor = sor.strip().split(';')
+        óra, perc, másodperc = korido.split(':')
+        sec = int(óra)*3600 + int(perc)*60 + int(másodperc)
+        sql.execute(" INSERT INTO tb VALUES (?,?,?,?,?,?,?) ", ( csapat, versenyzo, eletkor, palya, korido, kor, sec ) )
+sql.commit()
+
+# 3. feladat
+
+sorok_szama = sql.execute("SELECT COUNT(*) as sorok_szama FROM tb").fetchone()[0]
+print(f"{sorok_szama} sornyi adat található a táblában.")
+
+# 4. feladat
+
+futott = sql.execute("SELECT korido FROM tb WHERE versenyzo='Fürge Ferenc' AND palya='Gran Prix Circuit' AND kor=3 FROM tb").fetchone()[0]
+print(f"Fürge Ferenc {futott} időt futott a Gran Prix Circuit pályán harmadik nekifutásán.")
+
+
+
 
 
