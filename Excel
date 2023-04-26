@@ -1,0 +1,18 @@
+ÖSSZEADÁS
+Példa: "=1+1" a cellában a "2" értéket adja vissza.
+
+CELLÁK KÖZTI MŰVELETEK
+Példa:
+   A    B    C
+1  10   45
+2  34   41
+3  85   98
+
+1: Üres cella kiválasztása (Ide keletkezik az eredmény)
+2: "=" beírása a cellába
+3: Bal egérgomb a művelet első számára (Például A2(34))
+4: Művelet beírása (nem kell vissza kattintani az eredmény cellájába, csak a relációs jel begépelése (+, -, *, / stb.)
+5: Bal egérgomb a művelet második számára (Például B3(98))
+6: Enter - Eredmény megszületése
+Ezt nem csak 2 számmal lehet, többel is!
+
