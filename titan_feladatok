@@ -1,0 +1,57 @@
+
+print("---------------1.---------------")
+
+szam1=int(input("Első szám "))
+szam2=int(input("Második szám "))
+
+try:
+    osztott=szam1 / szam2
+    print(osztott)
+except:
+    print("Valami hiba történt az osztással")
+    
+
+print("---------------2.---------------")
+
+
+try:
+    szam=int(input("Szám "))
+    ujszam= szam ** 2
+    print(ujszam)
+except:
+    print("nem számot adtál meg!")
+    
+print("---------------3.---------------")
+
+try:
+    with open("data.txt", "r") as f:
+        print(data.txt.read())
+
+except:
+    print("file error")
+
+
+print("---------------4.---------------")
+
+lista=["alma1","alma2","alma3","alma4","alma5"]
+
+try:
+    kerdes=int(input("Hanyadik index "))
+    kerdes -= 1
+except:
+    print("Nem számot adtál meg")
+
+try:
+    print(lista[kerdes])
+except:
+    print("A listában nem létezik ez az index")
+
+
+
+print("---------------CLASS---------------")
+
+class DOG:
+    def __init__
+
+
+
