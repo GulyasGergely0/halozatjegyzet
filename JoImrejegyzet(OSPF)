@@ -35,7 +35,7 @@ network 10.1.1.0 0.0.0.3 area 0
 network 10.1.2.0 0.0.0.3 area 0
 passive-int g0/0
 
-lie con 0
+line con 0
 exec-timeout 0 0 
 login local
 crypto key gen rsa
