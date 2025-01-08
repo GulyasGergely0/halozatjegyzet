@@ -1,0 +1,44 @@
+2025 Január 8.
+
+OSPF
+
+konfig:
+router 1:
+-router ospf 18 <- random szám (process szám)
+-network  ip cím , maszk fordítva,és area
+passive interface g0/0
+ip route 0.0.0.0 0.0.0.0 201.1.12
+default-information originate
+
+
+
+hostname R1
+banner motd "Authorized personel only"
+ip domain-name wmtech.hu
+enable secret cisco
+username admin secret admin
+
+int g0/0
+ip address 192.168.1.254 255.255.255.0
+no shut
+
+int se0/0/0
+ip address 10.1.1.1 255.255.255.252
+no shut
+
+int se0/0/0
+ip address 10.1.2.2 255.255.255.252
+no shut
+router ospf 10
+network 192.168.1.0 0.0.0.255 area 0
+network 10.1.1.0 0.0.0.3 area 0
+network 10.1.2.0 0.0.0.3 area 0
+passive-int g0/0
+
+lie con 0
+exec-timeout 0 0 
+login local
+crypto key gen rsa
+1024
+ip ssh ver 2
+
