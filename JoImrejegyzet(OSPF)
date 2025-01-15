@@ -42,3 +42,17 @@ crypto key gen rsa
 1024
 ip ssh ver 2
 
+
+
+ACL
+
+access-list 10 permit 192.168.16.0 0.0.0.255                    /hálózat átengedése, az összes többi ip/hálózat letiltva
+access-list 12 deny 192.168.17.0 0.0.0.255                      /hálózat tiltása
+access-list 12 deny 192.168.18.0 0.0.0.256
+access-list 12 ally 192.168.1.0/27
+
+
+
+
+
+
